@@ -2,8 +2,6 @@
 
 Modular vehicle simulation in **OpenModelica** (powertrain, vehicle dynamics, FMU export) with generic models only for now.
 
-**Repo:** [github.com/vittoriabitton/om-vehicle-simulation](https://github.com/vittoriabitton/om-vehicle-simulation)
-
 ## Layout
 
 ```
