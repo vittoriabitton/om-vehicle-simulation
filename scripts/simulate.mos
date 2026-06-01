@@ -1,0 +1,18 @@
+// Simulate Vehicle.Examples.Powertrain (run from repo root: omc scripts/simulate.mos)
+setCommandLineOptions({"--std=latest"});
+
+loadModel(Modelica);
+loadFile("models/Vehicle/package.mo");
+
+checkModel(Vehicle.Examples.Powertrain);
+print(getErrorString());
+
+simulate(
+  Vehicle.Examples.Powertrain,
+  stopTime = 1,
+  numberOfIntervals = 1000,
+  outputFormat = "mat",
+  fileNamePrefix = "build/Powertrain");
+
+print("Output: build/Powertrain_res.mat\n");
+print(getErrorString());

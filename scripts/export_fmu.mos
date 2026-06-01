@@ -1,0 +1,15 @@
+// Generate FMU 2.0 sources for Powertrain (run after simulate.mos succeeds).
+// A complete binary .fmu may require OMEdit: File -> Export -> FMU (see README).
+setCommandLineOptions({"--std=latest"});
+
+loadModel(Modelica);
+loadFile("models/Vehicle/package.mo");
+checkModel(Vehicle.Examples.Powertrain);
+
+mkdir("build");
+cd("build");
+
+ok := translateModelFMU(Vehicle.Examples.Powertrain, version = "2.0", fileNamePrefix = "Powertrain");
+print("translateModelFMU: " + String(ok) + "\n");
+print("Sources under build/*.fmutmp/\n");
+print(getErrorString());

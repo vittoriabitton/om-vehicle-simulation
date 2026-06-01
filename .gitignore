@@ -1,0 +1,15 @@
+# Simulation / OpenModelica build products
+build/
+*.fmutmp/
+*.fmu
+*.mat
+*.csv
+*.log
+__OpenModelica_Scripts/
+
+# Python / IDE / OS
+__pycache__/
+.venv/
+.DS_Store
+.idea/
+.vscode/

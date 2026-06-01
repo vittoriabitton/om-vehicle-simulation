@@ -1,0 +1,24 @@
+// Install Modelica Standard Library into ~/.openmodelica/libraries/
+// Run: omc scripts/install_msl.mos
+// Or host alias: om-install-msl  (see README)
+
+preferredVersion := "4.0.0";
+fallbackVersion := "4.0.0+maint.om";
+
+print("Installing Modelica Standard Library (preferred: " + preferredVersion + ")...\n");
+
+ok := installPackage("Modelica", preferredVersion, exactMatch := true);
+err := getErrorString();
+
+if not ok then
+  print("Preferred version failed:\n" + err + "\nTrying fallback: " + fallbackVersion + "...\n");
+  ok := installPackage("Modelica", fallbackVersion, exactMatch := true);
+  err := getErrorString();
+end if;
+
+if ok then
+  print("Modelica Standard Library installed successfully.\n");
+else
+  print("Install failed:\n" + err + "\n");
+  print("GUI alternative: OMEdit -> Tools -> Install Library -> Modelica\n");
+end if;
